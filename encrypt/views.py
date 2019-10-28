@@ -5,6 +5,7 @@ from random import randint
 from django.core.mail import send_mail
 import json, time, mimetypes
 from os.path import join
+from os import makedirs
 from .models import Member, Prospect, KeyData, History
 from django.http import HttpResponse
 from django.contrib.auth.hashers import check_password, make_password
@@ -110,15 +111,15 @@ def list(request, id):
     if fs.exists(downPath):
         list = fs.listdir(downPath)[1]
         for file in list:
-            entry = {'dir': 'DownFiles', 'data': fs.get_modified_time(join(downPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
+            entry = {'dir': 'DownFiles', 'date': fs.get_modified_time(join(downPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
             allFiles.append(entry)
 
-    print(allFiles)
+    # print(allFiles)
     return JsonResponse(allFiles, safe=False)
 
 def keys(request, id):
     # get keys for userid
-    keys = KeyData.objects.filter(history__userid=id)
+    keys = KeyData.objects.filter(history__userid=id).distinct()
     # find files used with key
     allKeys = []
     for key in keys:
@@ -129,7 +130,7 @@ def keys(request, id):
             tf = hist.timestamp.strftime("%a, %d %b %Y %H:%M:%S")
             keyRec['files'].append({tf: hist.filename})
         allKeys.append(keyRec)
-    print(allKeys)
+    # print(allKeys)
     return JsonResponse(allKeys, safe=False)
 
 def download(request, path, id, name):
@@ -155,7 +156,9 @@ def upload(request):
         print(request.FILES)
         file = request.FILES['file']
         id = request.POST['userId']
-        filename = join('UpFiles', id, file.name)
+        dirname = join('UpFiles', id)
+        makedirs(dirname, exist_ok=True)
+        filename = join(dirname, file.name)
         fs = FileSystemStorage()
         fs.save(filename, file)
         return JsonResponse({'status': 'uploaded (' + str(fs.size(filename)) + ' bytes)'})
