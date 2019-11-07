@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'encrypt.apps.EncryptConfig',
     'corsheaders',
     'django.contrib.admin',
