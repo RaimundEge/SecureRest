@@ -38,6 +38,7 @@ def register(request):
             code += str(randint(0,9))
         # create new Prospect record
         hash = make_password(data['password'])
+        print('hash length: ' + len(hash))
         p = Prospect(userid=data['userName'], password=hash, email=data['email'], code=code)
         p.save()
         print('need to send email to: ' + data['email'])
