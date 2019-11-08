@@ -133,7 +133,7 @@ STATICFILES_DIRS = (
 CORS_ORIGIN_ALLOW_ALL = True
 
 #  email setup
-EMAIL_HOST = 'smtp.1and1.com'
+EMAIL_HOST = 'smtp.ionos.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'secure@ege.com'
 EMAIL_HOST_PASSWORD = 'lu3cas01'
