@@ -38,13 +38,13 @@ def register(request):
             code += str(randint(0,9))
         # create new Prospect record
         hash = make_password(data['password'])
-        print('hash length: ' + str(len(hash)))
         p = Prospect(userid=data['userName'], password=hash, email=data['email'], code=code)
         p.save()
         print('need to send email to: ' + data['email'])
         htmlMsg = "Dear " + data['userName'] + "!<p>Welcome as new member of SimplySecure.<p>Click here to activate your membership: <a href='" + data['addr'] + "/activate/" + code + "'>Activation Link</a><p> Regards, <br>&nbsp;&nbsp;SimpleSecure Admin";
         plainMsg = "Dear " + data['userName'] + "\n\nWelcome as new member of SimplySecure.\nCopy this link into your webbrowser to activate your membership: \n\n    " + data['addr'] + "/activate/" + code + "\n\nRegards, \n    SimpleSecure Admin";
 
+        print('sending to: ' + EMAIL_HOST)
         send_mail(
             'Greetings from SimplySecure',
             plainMsg,
