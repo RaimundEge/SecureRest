@@ -136,7 +136,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 EMAIL_HOST = 'smtp.ionos.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'secure@ege.com'
-EMAIL_HOST_PASSWORD = 'lu3cas01'
+EMAIL_HOST_PASSWORD = 'Lu3ca$01'
 EMAIL_USE_TLS = True
 
 # file storage
