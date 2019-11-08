@@ -28,7 +28,7 @@ class Member(models.Model):
 
 class Prospect(models.Model):
     userid = models.CharField(max_length=50)
-    password = models.CharField(max_length=64)
+    password = models.CharField(max_length=100)
     email = models.CharField(max_length=50)
     code = models.CharField(max_length=24)
     def __str__(self):
