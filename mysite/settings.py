@@ -140,7 +140,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('SMTP_HOST_PASSWORD', 'password')
 EMAIL_USE_TLS = True
 
 # file storage
-MEDIA_ROOT = '/SimplySecure/'
+MEDIA_ROOT = './'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
