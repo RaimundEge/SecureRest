@@ -16,9 +16,8 @@ def index(request):
 def list(request):
     # get hello records
     hellos = Hello.objects.filter()
-    response = "<html><body><ul>"
+    response = "<html><body><h3>List of Hello requests</h3><ul>"
     for h in hellos:
         response += "<li>" + str(h) + "</li>"
     response += "</ul></body></heml>"
-
     return HttpResponse(response)
