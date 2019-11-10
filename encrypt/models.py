@@ -57,5 +57,4 @@ class Hello(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     IP = models.CharField(max_length=20)
     def __str__(self):
-        return str(self.id) + " (" + self.timestamp + "-" + self.IP + ")"   
-        
+        return str(self.id) + " (" + str(self.timestamp) + "-" + self.IP + ")"   
