@@ -18,7 +18,7 @@ def list(request):
     hellos = Hello.objects.filter()
     response = "<html><body><ul>"
     for h in hellos:
-        response += "<li>" + h + "</li>"
+        response += "<li>" + str(h) + "</li>"
     response += "</ul></body></heml>"
 
     return HttpResponse(response)
