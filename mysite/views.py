@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+from encrypt.models import Hello
 
 def index(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
