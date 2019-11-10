@@ -12,3 +12,13 @@ def index(request):
     h = Hello(IP=ip)
     h.save()
     return HttpResponse("Welcome to rest-secure-ege backend")
+
+def list(request):
+    # get hello records
+    hellos = Hello.objects
+    response = "<html><body><ul>"
+    for h in hellos:
+        response += "<li>" + h + "</li>"
+    response += "</ul></body></heml>"
+
+    return HttpResponse(response)
