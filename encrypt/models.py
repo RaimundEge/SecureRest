@@ -52,3 +52,10 @@ class History(models.Model):
     keyid = models.ForeignKey(KeyData, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.keyid) + " (" + self.action + " for file: " + self.filename + "): " + str(self.timestamp)
+
+class Hello(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    IP = models.CharField(max_length=20)
+    def __str__(self):
+        return str(self.id) + " (" + self.timestamp + "-" + self.IP + ")"   
+        

@@ -135,8 +135,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 #  email setup
 EMAIL_HOST = 'smtp.ionos.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['SMTP_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['SMTP_HOST_PASSWORD']
+EMAIL_HOST_USER = os.environ.get('SMTP_HOST_USER', 'user')
+EMAIL_HOST_PASSWORD = os.environ.get('SMTP_HOST_PASSWORD', 'password')
 EMAIL_USE_TLS = True
 
 # file storage
