@@ -11,7 +11,7 @@ def index(request):
         ip = request.META.get('REMOTE_ADDR')
     h = Hello(IP=ip)
     h.save()
-    return HttpResponse("Welcome to rest-secure-ege backend")
+    return JsonResponse({"status": "Welcome to rest-secure-ege backend"})
 
 def list(request):
     # get hello records
