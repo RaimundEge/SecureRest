@@ -9,7 +9,7 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('list/<id>', views.list, name='list'),
     path('keys/<id>', views.keys, name='keys'),
-    path('download/<path>/<id>/<name>', views.download, name='download'),
+    path('download/<id>/<name>', views.download, name='download'),
     path('delete/<path>/<id>/<name>', views.delete, name='delete'),
     path('upload', views.upload, name='upload'),
     path('process', tasks.process),

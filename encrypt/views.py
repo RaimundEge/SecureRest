@@ -125,8 +125,8 @@ def keys(request, id):
     # print(allKeys)
     return JsonResponse(allKeys, safe=False)
 
-def download(request, path, id, name):
-    filename = join(path, id, name)
+def download(request, id, name):
+    filename = join(id, name)
     print('filename: ' + filename)
     fs = FileSystemStorage()
     file = fs.open(filename)
