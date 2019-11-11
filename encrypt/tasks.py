@@ -113,7 +113,7 @@ def crypt(request):
             else:
                 filename += '.decrypt'
         fs = FileSystemStorage()
-        makedirs('XX', exist_ok=True)
+        os.makedirs('XX', exist_ok=True)
         if fs.exists(join('XX', filename)):
             fs.delete(join('XX', filename))
         outFile = fs.open(join('XX', filename), 'wb')
