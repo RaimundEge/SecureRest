@@ -62,10 +62,10 @@ def process(request):
         outFile = fs.open(join(dirname, filename), 'wb')
         # now do the crypt operation
         if key.algorithm == 'AES':
-            algo = algorithms.AES(keyData)
+            algo = algorithms.AES(key.keybytes)
         if key.algorithm == "DES" or key.algorithm == "DESede":
-            algo = algorithms.TripleDES(keyData)
-        if rData['mode'] == 'CBC':
+            algo = algorithms.TripleDES(key.keybytes)
+        if key.mode == 'CBC':
             cipher = Cipher(algo, modes.CBC(ivData), backend=backend)
         else:
             cipher = Cipher(algo, modes.ECB(), backend=backend)          
