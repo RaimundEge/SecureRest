@@ -57,9 +57,9 @@ def process(request):
                 filename = name
             else:
                 filename += '.decrypt'
-        if fs.exists(join(dirname, filename)):
-            fs.delete(join(dirname, filename))
-        outFile = fs.open(join(dirname, filename), 'wb')
+        if fs.exists(join(str(rData['userId']), filename)):
+            fs.delete(join(str(rData['userId']), filename))
+        outFile = fs.open(join(str(rData['userId']), filename), 'wb')
         # now do the crypt operation
         print('type of key.keybytes: ', type(key.keybytes))
         if key.algorithm == 'AES':
