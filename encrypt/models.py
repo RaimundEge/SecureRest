@@ -28,8 +28,8 @@ class Member(models.Model):
 
 class Prospect(models.Model):
     userid = models.CharField(max_length=50)
-    password = models.CharField(max_length=100)
-    email = models.CharField(max_length=50)
+    password = models.BinaryField(max_length=100)
+    email = models.EmailField()
     code = models.CharField(max_length=24)
     def __str__(self):
         return self.code + " (" + self.email + ")"
@@ -38,15 +38,15 @@ class KeyData(models.Model):
     algorithm= models.CharField(max_length=50)
     keysize = models.IntegerField()
     mode = models.CharField(max_length=3)
-    keybytes = models.CharField(max_length=256)
-    ivbytes = models.CharField(max_length=256)
+    keybytes = models.BinaryField(max_length=256)
+    ivbytes = models.BinaryField(max_length=256)
     def __str__(self):
         return str(self.id) + " (" + self.algorithm + "-" + self.mode + ")"
 
 class History(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     userid = models.ForeignKey(Member, on_delete=models.CASCADE)
-    IP = models.CharField(max_length=20)
+    IP = models.GenericIPAddressField()
     filename = models.CharField(max_length=256)
     action = models.CharField(max_length=1)
     keyid = models.ForeignKey(KeyData, on_delete=models.CASCADE)
@@ -55,6 +55,6 @@ class History(models.Model):
 
 class Hello(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
-    IP = models.CharField(max_length=20)
+    IP = models.GenericIPAddressField()
     def __str__(self):
         return str(self.id) + ": at " + self.timestamp.strftime("%a, %d %b %Y %H:%M:%S") + " from " + self.IP  
