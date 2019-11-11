@@ -61,7 +61,7 @@ def process(request):
         os.makedirs(dirname, exist_ok=True)
         outFile = fs.open(join(dirname, filename), 'wb')
         # now do the crypt operation
-        print('type of key.keybytes: ' + type(key.keybytes))
+        print('type of key.keybytes: ', type(key.keybytes))
         if key.algorithm == 'AES':
             algo = algorithms.AES(key.keybytes)
         if key.algorithm == "DES" or key.algorithm == "DESede":
