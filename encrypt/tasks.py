@@ -116,7 +116,7 @@ def crypt(request):
         makedirs('XX', exist_ok=True)
         if fs.exists(join('XX', filename)):
             fs.delete(join('XX', filename))
-        outFile = fs.open(, 'wb')
+        outFile = fs.open(join('XX', filename), 'wb')
         # prepare key/iv from password
         key, iv = generateSecrets(password)
         # prepare AES/CBC
