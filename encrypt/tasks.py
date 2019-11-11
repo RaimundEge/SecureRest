@@ -48,7 +48,7 @@ def process(request):
         # have key, open files
         fs = FileSystemStorage()
         filename = rData['fileName']
-        inFile = fs.open(join('UpFiles', str(rData['userId']), filename), 'rb')
+        inFile = fs.open(join(str(rData['userId']), filename), 'rb')
         if rData['op'] == 'encrypt':
             filename += '.crypt'
         else:
@@ -57,8 +57,8 @@ def process(request):
                 filename = name
             else:
                 filename += '.decrypt'
-        dirname = join('DownFiles', str(member.id))
-        os.makedirs(dirname, exist_ok=True)
+        if fs.exists(join(dirname, filename)):
+            fs.delete(join(dirname, filename))
         outFile = fs.open(join(dirname, filename), 'wb')
         # now do the crypt operation
         print('type of key.keybytes: ', type(key.keybytes))
@@ -90,7 +90,7 @@ def process(request):
         rec = History(userid=member, IP=ip, action=action, filename=filename, keyid=key)
         rec.save()
         # construct response
-        size = fs.size(join('DownFiles', str(rData['userId']), filename))
+        size = fs.size(join(str(rData['userId']), filename))
         return JsonResponse({'status': rData['op'] + 'ed', 'name': filename, 'member': member.id, 'size': str(size)})
 
     return JsonResponse({'status': 'nothing processed'}) 
