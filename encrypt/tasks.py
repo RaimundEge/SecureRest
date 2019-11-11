@@ -113,7 +113,10 @@ def crypt(request):
             else:
                 filename += '.decrypt'
         fs = FileSystemStorage()
-        outFile = fs.open(join('DownFiles', 'XX', filename), 'wb')
+        makedirs('XX', exist_ok=True)
+        if fs.exists(join('XX', filename)):
+            fs.delete(join('XX', filename))
+        outFile = fs.open(, 'wb')
         # prepare key/iv from password
         key, iv = generateSecrets(password)
         # prepare AES/CBC
@@ -132,7 +135,7 @@ def crypt(request):
             plaintext = unpadder.update(padded_plaintext) + unpadder.finalize()
             outFile.write(plaintext)
         outFile.close()
-        size = fs.size(join('DownFiles', 'XX', filename))
+        size = fs.size(join('XX', filename))
         return JsonResponse({'status': op + 'ed', 'name': filename, 'member': 'XX', 'size': str(size)})
     return JsonResponse({'status': 'nothing processed'}) 
 

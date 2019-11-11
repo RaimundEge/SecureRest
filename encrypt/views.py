@@ -101,20 +101,12 @@ def login(request):
 def list(request, id):
     fs = FileSystemStorage()
     allFiles = []
-    upPath = join('UpFiles', id)
-    if fs.exists(upPath):
+    if fs.exists(id):
         list = fs.listdir(upPath)[1]
         for file in list:
-            entry = {'dir': 'UpFiles', 'date': fs.get_modified_time(join(upPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
+            entry = {'dir': '.', 'date': fs.get_modified_time(join(upPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
             allFiles.append(entry)
-    downPath = join('DownFiles', id)        
-    if fs.exists(downPath):
-        list = fs.listdir(downPath)[1]
-        for file in list:
-            entry = {'dir': 'DownFiles', 'date': fs.get_modified_time(join(downPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
-            allFiles.append(entry)
-
-    # print(allFiles)
+    print(allFiles)
     return JsonResponse(allFiles, safe=False)
 
 def keys(request, id):
@@ -156,10 +148,11 @@ def upload(request):
         print(request.FILES)
         file = request.FILES['file']
         id = request.POST['userId']
-        dirname = join('UpFiles', id)
-        makedirs(dirname, exist_ok=True)
-        filename = join(dirname, file.name)
+        makedirs(id, exist_ok=True)
+        filename = join(id, file.name)
         fs = FileSystemStorage()
+        if fs.exists(filename):
+            fs.delete(filename)
         fs.save(filename, file)
         return JsonResponse({'status': 'uploaded (' + str(fs.size(filename)) + ' bytes)'})
     return JsonResponse({'status': 'nothing uploaded'})
