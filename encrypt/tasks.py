@@ -67,7 +67,7 @@ def process(request):
         if key.algorithm == "DES" or key.algorithm == "DESede":
             algo = algorithms.TripleDES(key.keybytes)
         if key.mode == 'CBC':
-            cipher = Cipher(algo, modes.CBC(ivData), backend=backend)
+            cipher = Cipher(algo, modes.CBC(key.ivbytes), backend=backend)
         else:
             cipher = Cipher(algo, modes.ECB(), backend=backend)          
         cryptor = cipher.encryptor() if (rData['op'] == 'encrypt') else cipher.decryptor()
