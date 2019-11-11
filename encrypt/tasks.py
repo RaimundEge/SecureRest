@@ -26,7 +26,7 @@ def process(request):
         # get key
         keyId = rData.get('keyId')
         if keyId != None:
-            key = KeyData.object.get(id=keyId)
+            key = KeyData.objects.get(id=keyId)
         else:
             keyStyle = rData['keyStyle']
             if keyStyle == 'password':
