@@ -102,7 +102,7 @@ def list(request, id):
     fs = FileSystemStorage()
     allFiles = []
     if fs.exists(id):
-        list = fs.listdir(upPath)[1]
+        list = fs.listdir(id)[1]
         for file in list:
             entry = {'dir': '.', 'date': fs.get_modified_time(join(upPath, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
             allFiles.append(entry)
