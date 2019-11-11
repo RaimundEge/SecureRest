@@ -5,9 +5,9 @@ class Member(models.Model):
     lastname = models.CharField(max_length=50)
     firstname = models.CharField(max_length=50)
     type = models.CharField(max_length=1)
-    password = models.CharField(max_length=100)
-    email = models.CharField(max_length=50)
-    IP = models.CharField(max_length=20)
+    password = models.BinaryField(max_length=100)
+    email = models.EmailField()
+    IP = models.GenericIPAddressField()
     address = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     status = ''
