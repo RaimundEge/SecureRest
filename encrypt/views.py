@@ -135,8 +135,8 @@ def download(request, id, name):
     response['Content-Disposition'] = "attachment; filename=%s" % name
     return response
 
-def delete(request, path, id, name):
-    filename = join(path, id, name)
+def delete(request, id, name):
+    filename = join(id, name)
     print('filename: ' + filename)
     fs = FileSystemStorage()
     fs.delete(filename)

@@ -10,7 +10,7 @@ urlpatterns = [
     path('list/<id>', views.list, name='list'),
     path('keys/<id>', views.keys, name='keys'),
     path('download/<id>/<name>', views.download, name='download'),
-    path('delete/<path>/<id>/<name>', views.delete, name='delete'),
+    path('delete/<id>/<name>', views.delete, name='delete'),
     path('upload', views.upload, name='upload'),
     path('process', tasks.process),
     path('crypt', tasks.crypt),
