@@ -15,7 +15,7 @@ def index(request):
 
 def list(request):
     # get hello records
-    hellos = Hello.objects.filter()
+    hellos = Hello.objects.order-by('-timestamp')[:25]
     response = "<html><body><h3>List of Hello requests</h3><ul>"
     for h in hellos:
         response += "<li>" + str(h) + "</li>"
