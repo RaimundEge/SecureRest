@@ -142,4 +142,4 @@ EMAIL_HOST_PASSWORD = env('MY_VAR_2')
 EMAIL_USE_TLS = True
 
 # file storage
-MEDIA_ROOT = './'
+MEDIA_ROOT = './userfiles/'
