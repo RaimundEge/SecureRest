@@ -134,8 +134,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 #  email setup
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'RaimundEge'
-EMAIL_HOST_PASSWORD = 'gxqarksmcireeawm'
+EMAIL_HOST_USER = os.environ.get('MY_VAR_1')
+EMAIL_HOST_PASSWORD = os.environ.get('MY_VAR_2')
 EMAIL_USE_TLS = True
 
 # file storage
