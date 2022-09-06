@@ -148,9 +148,9 @@ def upload(request):
         print(request.FILES)
         file = request.FILES['file']
         id = request.POST['userId']
-        makedirs(id, exist_ok=True)
-        filename = join(id, file.name)
         fs = FileSystemStorage()
+        makedirs(join(fs.location, id), exist_ok=True)
+        filename = join(id, file.name)       
         if fs.exists(filename):
             fs.delete(filename)
         fs.save(filename, file)
