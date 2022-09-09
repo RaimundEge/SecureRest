@@ -11,6 +11,8 @@ from django.http import HttpResponse
 from django.contrib.auth.hashers import check_password, make_password
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
+import logging
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -23,13 +25,13 @@ def member(request, userid):
         d = m.toJSON()
     except ObjectDoesNotExist:
         d['status'] = 'User not found'
-    
+    logger.info(userid)
     return JsonResponse(d)
 
 def register(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data)
+        logger.info(data)
         # delete all previous Prospect entries
         Prospect.objects.filter(userid=data['userName']).delete()
         # generate 6 digit random code
@@ -82,7 +84,7 @@ def login(request):
 
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data)
+        logger.info(data)
         # lookup member
         try:
             m = Member.objects.get(userid=data['userName'])   
@@ -91,7 +93,7 @@ def login(request):
 
         # check password
         if check_password(data['password'], m.password):
-            print('Member authenticated: ' + m.userid)
+            logger.info('Member authenticated: ' + m.userid)
             return JsonResponse(m.toJSON())
         else:
             return JsonResponse({'status': 'User unknown or code incorrect'})
@@ -100,13 +102,14 @@ def login(request):
 
 def list(request, id):
     fs = FileSystemStorage()
+    logger.info(fs.location)
     allFiles = []
     if fs.exists(id):
         list = fs.listdir(id)[1]
         for file in list:
             entry = {'dir': '.', 'date': fs.get_modified_time(join(id, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
             allFiles.append(entry)
-    print(allFiles)
+    logger.info(allFiles)
     return JsonResponse(allFiles, safe=False)
 
 def keys(request, id):
@@ -122,12 +125,12 @@ def keys(request, id):
             tf = hist.timestamp.strftime("%a, %d %b %Y %H:%M:%S")
             keyRec['files'].append({tf: hist.filename})
         allKeys.append(keyRec)
-    # print(allKeys)
+    logger.info(allKeys)
     return JsonResponse(allKeys, safe=False)
 
 def download(request, id, name):
     filename = join(id, name)
-    print('filename: ' + filename)
+    logger.info('filename: ' + filename)
     fs = FileSystemStorage()
     file = fs.open(filename)
     mime_type, _ = mimetypes.guess_type(filename)
@@ -137,15 +140,15 @@ def download(request, id, name):
 
 def delete(request, id, name):
     filename = join(id, name)
-    print('filename: ' + filename)
+    logger.info('filename: ' + filename)
     fs = FileSystemStorage()
     fs.delete(filename)
     return JsonResponse({'message': name + ' deleted'})
 
 def upload(request):
     if request.method == 'POST':
-        print(request.POST)
-        print(request.FILES)
+        logger.info(request.POST)
+        logger.info(request.FILES)
         file = request.FILES['file']
         id = request.POST['userId']
         fs = FileSystemStorage()

@@ -1,0 +1,270 @@
+(0.083) INSERT INTO "encrypt_hello" ("timestamp", "IP") VALUES ('2022-09-09 16:50:38.001310', '98.97.43.239'); args=['2022-09-09 16:50:38.001310', '98.97.43.239']; alias=default
+(0.001) SELECT "encrypt_member"."id", "encrypt_member"."userid", "encrypt_member"."lastname", "encrypt_member"."firstname", "encrypt_member"."type", "encrypt_member"."password", "encrypt_member"."email", "encrypt_member"."IP", "encrypt_member"."address", "encrypt_member"."country" FROM "encrypt_member" WHERE "encrypt_member"."userid" = 'RaimundEge' LIMIT 21; args=('RaimundEge',); alias=default
+(0.001) SELECT DISTINCT "encrypt_keydata"."id", "encrypt_keydata"."algorithm", "encrypt_keydata"."keysize", "encrypt_keydata"."mode", "encrypt_keydata"."keybytes", "encrypt_keydata"."ivbytes" FROM "encrypt_keydata" INNER JOIN "encrypt_history" ON ("encrypt_keydata"."id" = "encrypt_history"."keyid_id") WHERE "encrypt_history"."userid_id" = 1; args=(1,); alias=default
+(0.000) SELECT "encrypt_member"."id", "encrypt_member"."userid", "encrypt_member"."lastname", "encrypt_member"."firstname", "encrypt_member"."type", "encrypt_member"."password", "encrypt_member"."email", "encrypt_member"."IP", "encrypt_member"."address", "encrypt_member"."country" FROM "encrypt_member" WHERE "encrypt_member"."userid" = 'RaimundEge' LIMIT 21; args=('RaimundEge',); alias=default
+(0.001) SELECT DISTINCT "encrypt_keydata"."id", "encrypt_keydata"."algorithm", "encrypt_keydata"."keysize", "encrypt_keydata"."mode", "encrypt_keydata"."keybytes", "encrypt_keydata"."ivbytes" FROM "encrypt_keydata" INNER JOIN "encrypt_history" ON ("encrypt_keydata"."id" = "encrypt_history"."keyid_id") WHERE "encrypt_history"."userid_id" = 1; args=(1,); alias=default
+(0.000) SELECT "encrypt_member"."id", "encrypt_member"."userid", "encrypt_member"."lastname", "encrypt_member"."firstname", "encrypt_member"."type", "encrypt_member"."password", "encrypt_member"."email", "encrypt_member"."IP", "encrypt_member"."address", "encrypt_member"."country" FROM "encrypt_member" WHERE "encrypt_member"."userid" = 'RaimundEge' LIMIT 21; args=('RaimundEge',); alias=default
+(0.001) SELECT DISTINCT "encrypt_keydata"."id", "encrypt_keydata"."algorithm", "encrypt_keydata"."keysize", "encrypt_keydata"."mode", "encrypt_keydata"."keybytes", "encrypt_keydata"."ivbytes" FROM "encrypt_keydata" INNER JOIN "encrypt_history" ON ("encrypt_keydata"."id" = "encrypt_history"."keyid_id") WHERE "encrypt_history"."userid_id" = 1; args=(1,); alias=default
+RaimundEge
+encrypt.views WARNING 2022-09-09 12:23:45,213 views 2702931 140518024886016 RaimundEge
+2022-09-09 12:32:06,542 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 12:32:06,766 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 12:32:06,906 INFO encrypt.views []
+2022-09-09 12:32:07,046 INFO encrypt.views []
+2022-09-09 12:49:36,144 INFO encrypt.views []
+2022-09-09 12:49:36,161 INFO encrypt.views []
+2022-09-09 12:51:11,005 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 12:51:11,236 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 12:51:11,341 INFO encrypt.views []
+2022-09-09 12:51:11,431 INFO encrypt.views []
+2022-09-09 12:57:35,025 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 12:57:35,256 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 12:57:35,393 INFO encrypt.views []
+2022-09-09 12:57:35,516 INFO encrypt.views []
+2022-09-09 12:59:54,627 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 12:59:54,852 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 12:59:55,048 ERROR django.request Internal Server Error: /encrypt/list/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/views.py", line 106, in list
+    logger.INFO(fs.base_url)
+AttributeError: 'Logger' object has no attribute 'INFO'
+2022-09-09 12:59:55,093 INFO encrypt.views []
+2022-09-09 13:00:38,185 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 13:00:38,409 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 13:00:38,536 INFO encrypt.views /
+2022-09-09 13:00:38,536 INFO encrypt.views []
+2022-09-09 13:00:38,624 INFO encrypt.views []
+2022-09-09 13:01:58,910 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 13:01:59,134 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 13:01:59,237 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:01:59,237 INFO encrypt.views []
+2022-09-09 13:01:59,347 INFO encrypt.views []
+2022-09-09 13:03:31,195 INFO encrypt.views {'userName': 'RaimundEge', 'password': 'Lu3cas'}
+2022-09-09 13:03:31,424 INFO encrypt.views Member authenticated: RaimundEge
+2022-09-09 13:03:31,546 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:03:31,546 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}]
+2022-09-09 13:03:31,637 INFO encrypt.views []
+2022-09-09 13:05:18,670 INFO encrypt.views filename: 1/moss.perl
+2022-09-09 13:07:06,528 INFO encrypt.views <QueryDict: {'userId': ['1']}>
+2022-09-09 13:07:06,528 INFO encrypt.views <MultiValueDict: {'file': [<InMemoryUploadedFile: file.raw (image/x-panasonic-rw)>]}>
+2022-09-09 13:07:06,644 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:07:06,644 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:07:12,103 ERROR django.request Internal Server Error: /encrypt/process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/tasks.py", line 29, in process
+    key = KeyData.objects.get(id=keyId)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+encrypt.models.KeyData.DoesNotExist: KeyData matching query does not exist.
+2022-09-09 13:14:46,607 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:14:46,609 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:14:46,613 INFO encrypt.views []
+2022-09-09 13:15:16,980 ERROR django.request Internal Server Error: /encrypt/upload
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 404, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: Apache/mod_wsgi request data read error: Partial results are valid but processing is incomplete.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/views.py", line 150, in upload
+    logger.info(request.POST)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 100, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 369, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 319, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 165, in parse
+    for item_type, meta_data, field_stream in Parser(stream, self._boundary):
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 709, in __iter__
+    for sub_stream in boundarystream:
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 533, in __next__
+    return LazyStream(BoundaryIter(self._stream, self._boundary))
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 560, in __init__
+    unused_char = self._stream.read(1)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 427, in read
+    return b"".join(parts())
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 418, in parts
+    chunk = next(self)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 440, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 507, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 406, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: Apache/mod_wsgi request data read error: Partial results are valid but processing is incomplete.
+2022-09-09 13:15:48,545 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:15:48,546 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:15:48,556 INFO encrypt.views []
+2022-09-09 13:16:11,700 INFO encrypt.views <QueryDict: {'userId': ['1']}>
+2022-09-09 13:16:11,700 INFO encrypt.views <MultiValueDict: {'file': [<InMemoryUploadedFile: README.md (text/markdown)>]}>
+2022-09-09 13:16:11,810 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:16:11,811 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:16:28,449 INFO encrypt.tasks b'{"id":0,"userId":1,"op":"encrypt","algorithm":"AES","keyStyle":"password","password":"Lu3cas","keySize":128,"keySizeString":"128","mode":"ECB","keyData":"","ivSize":128,"ivData":"","fileName":"README.md","processedAs":"","status":"","uploadComplete":true,"keyId":0}'
+2022-09-09 13:16:28,473 ERROR django.request Internal Server Error: /encrypt/process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/tasks.py", line 31, in process
+    key = KeyData.objects.get(id=keyId)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+encrypt.models.KeyData.DoesNotExist: KeyData matching query does not exist.
+2022-09-09 13:20:49,989 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:20:49,992 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:20:49,994 INFO encrypt.views []
+2022-09-09 13:20:56,581 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:20:56,582 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:20:56,589 INFO encrypt.views []
+2022-09-09 13:21:12,484 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 13:21:12,486 INFO encrypt.views [{'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 13:21:12,487 INFO encrypt.views []
+2022-09-09 14:30:07,740 INFO encrypt.views <QueryDict: {'userId': ['1']}>
+2022-09-09 14:30:07,741 INFO encrypt.views <MultiValueDict: {'file': [<InMemoryUploadedFile: temper-py-0.0.3.tar.gz (application/gzip)>]}>
+2022-09-09 14:30:07,861 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:30:07,862 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:30:22,723 INFO encrypt.tasks b'{"id":0,"userId":1,"op":"encrypt","algorithm":"AES","keyStyle":"password","password":"Lu3cas","keySize":128,"keySizeString":"128","mode":"ECB","keyData":"","ivSize":128,"ivData":"","fileName":"temper-py-0.0.3.tar.gz","processedAs":"","status":"","uploadComplete":true,"keyId":0}'
+2022-09-09 14:30:22,812 ERROR django.request Internal Server Error: /encrypt/process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/tasks.py", line 31, in process
+    key = KeyData.objects.get(id=keyId)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+encrypt.models.KeyData.DoesNotExist: KeyData matching query does not exist.
+2022-09-09 14:39:05,783 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:39:05,784 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:39:05,796 INFO encrypt.views []
+2022-09-09 14:39:59,886 INFO encrypt.views <QueryDict: {'userId': ['1']}>
+2022-09-09 14:39:59,887 INFO encrypt.views <MultiValueDict: {'file': [<InMemoryUploadedFile: 350banner.png (image/png)>]}>
+2022-09-09 14:40:00,009 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:40:00,010 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:40:09,006 INFO encrypt.tasks b'{"id":0,"userId":1,"op":"encrypt","algorithm":"AES","keyStyle":"password","password":"Lu3cas","keySize":128,"keySizeString":"128","mode":"ECB","keyData":"","ivSize":128,"ivData":"","fileName":"350banner.png","processedAs":"","status":"","uploadComplete":true,"keyId":0}'
+2022-09-09 14:40:09,026 ERROR django.request Internal Server Error: /encrypt/process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/tasks.py", line 31, in process
+    key = KeyData.objects.get(id=keyId)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+encrypt.models.KeyData.DoesNotExist: KeyData matching query does not exist.
+2022-09-09 14:42:11,239 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:42:11,239 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:42:11,249 INFO encrypt.views []
+2022-09-09 14:42:16,063 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:42:16,066 INFO encrypt.views []
+2022-09-09 14:42:16,066 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:42:38,018 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:42:38,021 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:42:38,023 INFO encrypt.views []
+2022-09-09 14:44:18,501 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:44:18,502 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:44:18,516 INFO encrypt.views []
+2022-09-09 14:44:20,681 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:44:20,681 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:44:20,697 INFO encrypt.views []
+2022-09-09 14:45:08,630 ERROR django.request Internal Server Error: /encrypt/upload
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 404, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: Apache/mod_wsgi request data read error: The timeout specified has expired.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/secure/REST/encrypt/views.py", line 150, in upload
+    logger.info(request.POST)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/wsgi.py", line 100, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 369, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 319, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 266, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 440, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 577, in __next__
+    for bytes in stream:
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 440, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/multipartparser.py", line 507, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib/python3.8/dist-packages/django/http/request.py", line 406, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: Apache/mod_wsgi request data read error: The timeout specified has expired.
+2022-09-09 14:49:03,415 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:49:03,419 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:49:03,420 INFO encrypt.views []
+2022-09-09 14:49:21,016 INFO encrypt.tasks b'{"id":0,"userId":1,"op":"encrypt","algorithm":"AES","keyStyle":"password","password":"Lu3cas","keySize":128,"keySizeString":"128","mode":"ECB","keyData":"","ivSize":128,"ivData":"","fileName":"350banner.png","processedAs":"","status":"","uploadComplete":true,"keyId":null}'
+2022-09-09 14:49:21,491 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:49:21,492 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}]
+2022-09-09 14:49:21,611 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}]
+2022-09-09 14:50:37,008 INFO encrypt.views <QueryDict: {'userId': ['1']}>
+2022-09-09 14:50:37,008 INFO encrypt.views <MultiValueDict: {'file': [<InMemoryUploadedFile: temper.py (text/x-python)>]}>
+2022-09-09 14:50:37,115 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:50:37,116 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:50:47,983 INFO encrypt.tasks b'{"id":0,"userId":1,"op":"encrypt","algorithm":"DES","keyStyle":"password","password":"Lu3cas","keySize":64,"keySizeString":"","mode":"ECB","keyData":"","ivSize":64,"ivData":"","fileName":"temper.py","processedAs":"","status":"","uploadComplete":true,"keyId":null}'
+2022-09-09 14:50:48,448 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:50:48,449 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:16:11', 'name': 'README.md'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:50:48,568 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}, {'id': 2, 'algorithm': 'DES', 'keySize': 64, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:50:48': 'temper.py.crypt'}]}]
+2022-09-09 14:51:12,866 INFO encrypt.views filename: 1/README.md
+2022-09-09 14:51:13,004 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:51:13,005 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 18:07:06', 'name': 'file.raw'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:51:15,193 INFO encrypt.views filename: 1/file.raw
+2022-09-09 14:51:15,337 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:51:15,338 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:51:29,665 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:51:29,667 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:51:29,669 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}, {'id': 2, 'algorithm': 'DES', 'keySize': 64, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:50:48': 'temper.py.crypt'}]}]
+2022-09-09 14:52:17,044 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:52:17,044 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:52:17,229 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}, {'id': 2, 'algorithm': 'DES', 'keySize': 64, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:50:48': 'temper.py.crypt'}]}]
+2022-09-09 14:52:25,515 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:52:25,516 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:52:25,524 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}, {'id': 2, 'algorithm': 'DES', 'keySize': 64, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:50:48': 'temper.py.crypt'}]}]
+2022-09-09 14:52:29,272 INFO encrypt.views /home/www/secure/REST/mysite/userfiles
+2022-09-09 14:52:29,274 INFO encrypt.views [{'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:48', 'name': 'temper.py.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:30:07', 'name': 'temper-py-0.0.3.tar.gz'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:39:59', 'name': '350banner.png'}, {'dir': '.', 'date': 'Tue, 06 Sep 2022 22:20:02', 'name': 'moss.perl'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:49:21', 'name': '350banner.png.crypt'}, {'dir': '.', 'date': 'Fri, 09 Sep 2022 19:50:37', 'name': 'temper.py'}]
+2022-09-09 14:52:29,280 INFO encrypt.views [{'id': 1, 'algorithm': 'AES', 'keySize': 128, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:49:21': '350banner.png.crypt'}]}, {'id': 2, 'algorithm': 'DES', 'keySize': 64, 'mode': 'ECB', 'files': [{'Fri, 09 Sep 2022 19:50:48': 'temper.py.crypt'}]}]

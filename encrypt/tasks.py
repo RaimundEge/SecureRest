@@ -10,10 +10,12 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.backends import default_backend
 backend = default_backend()
 BLOCKSIZE = 1024
+import logging
+logger = logging.getLogger(__name__)
 
 def process(request):
     if request.method == 'POST':
-        print(request.body)  
+        logger.info(request.body)  
         rData = json.loads(request.body) 
         # get IP number
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -41,7 +43,7 @@ def process(request):
             # check whether key already exists, if not create and store
             try:
                 key = KeyData.objects.get(keysize=rData['keySize'], algorithm=rData['algorithm'], keybytes=keyData, ivbytes=ivData, mode=rData['mode'])
-                print('re-using key')
+                logger.info('re-using key')
             except ObjectDoesNotExist:   
                 key = KeyData(keysize=rData['keySize'], algorithm=rData['algorithm'], keybytes=keyData, ivbytes=ivData, mode=rData['mode'])
                 key.save()
@@ -61,7 +63,7 @@ def process(request):
             fs.delete(join(str(rData['userId']), filename))
         outFile = fs.open(join(str(rData['userId']), filename), 'wb')
         # now do the crypt operation
-        print('type of key.keybytes: ', type(key.keybytes))
+        logger.info('type of key.keybytes: ', type(key.keybytes))
         if key.algorithm == 'AES':
             algo = algorithms.AES(key.keybytes)
         if key.algorithm == "DES" or key.algorithm == "DESede":
@@ -97,8 +99,8 @@ def process(request):
 
 def crypt(request):
     if request.method == 'POST':
-        print(request.POST)
-        print(request.FILES)
+        logger.info(request.POST)
+        logger.info(request.FILES)
         op = request.POST['op']
         password = request.POST['pwd']
         inFile = request.FILES['file']
