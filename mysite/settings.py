@@ -173,3 +173,6 @@ LOGGING = {
         },
     },
 }
+
+# grecaptcha
+CAPTCHA_V3_KEY = env('MY_VAR_3')

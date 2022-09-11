@@ -12,6 +12,8 @@ backend = default_backend()
 BLOCKSIZE = 1024
 import logging
 logger = logging.getLogger(__name__)
+from settings import CAPTCHA_V3_KEY
+import requests
 
 def process(request):
     if request.method == 'POST':
@@ -101,44 +103,56 @@ def crypt(request):
     if request.method == 'POST':
         logger.info(request.POST)
         logger.info(request.FILES)
-        op = request.POST['op']
-        password = request.POST['pwd']
-        inFile = request.FILES['file']
-        # prepare output file path
-        filename = inFile.name 
-        if op == 'Encrypt':
-            filename += '.crypt'
-        else:
-            name, ext = splitext(filename)
-            if ext == '.crypt':
-                filename = name
+        # check for robot
+        gData = {
+            'response': request.POST['token'],
+            'secret': CAPTCHA_V3_KEY
+        }
+        logger.info('Key: ' + CAPTCHA_V3_KEY)
+        logger.info('Token: ' + request.POST['token'])
+        resp = requests.post('https://www.google.com/recaptcha/api/siteverify', data=gData)
+        logger.info(resp.status_code)
+        if resp.status_code == 200:
+            op = request.POST['op']
+            password = request.POST['pwd']
+            inFile = request.FILES['file']
+            # prepare output file path
+            filename = inFile.name 
+            if op == 'Encrypt':
+                filename += '.crypt'
             else:
-                filename += '.decrypt'
-        fs = FileSystemStorage()
-        os.makedirs(join(fs.location, 'XX'), exist_ok=True)
-        if fs.exists(join('XX', filename)):
-            fs.delete(join('XX', filename))
-        outFile = fs.open(join('XX', filename), 'wb')
-        # prepare key/iv from password
-        key, iv = generateSecrets(password)
-        # prepare AES/CBC
-        cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=backend)
-        cryptor = cipher.encryptor() if (op == 'Encrypt') else cipher.decryptor()
-        # read file, feed cryptor, write file
-        data = inFile.read()
-        if op == 'Encrypt':
-            padder = padding.PKCS7(algorithms.AES.block_size).padder()
-            padded_data = padder.update(data) + padder.finalize()
-            outFile.write(cryptor.update(padded_data))
-            outFile.write(cryptor.finalize())
+                name, ext = splitext(filename)
+                if ext == '.crypt':
+                    filename = name
+                else:
+                    filename += '.decrypt'
+            fs = FileSystemStorage()
+            os.makedirs(join(fs.location, 'XX'), exist_ok=True)
+            if fs.exists(join('XX', filename)):
+                fs.delete(join('XX', filename))
+            outFile = fs.open(join('XX', filename), 'wb')
+            # prepare key/iv from password
+            key, iv = generateSecrets(password)
+            # prepare AES/CBC
+            cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=backend)
+            cryptor = cipher.encryptor() if (op == 'Encrypt') else cipher.decryptor()
+            # read file, feed cryptor, write file
+            data = inFile.read()
+            if op == 'Encrypt':
+                padder = padding.PKCS7(algorithms.AES.block_size).padder()
+                padded_data = padder.update(data) + padder.finalize()
+                outFile.write(cryptor.update(padded_data))
+                outFile.write(cryptor.finalize())
+            else:
+                unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
+                padded_plaintext = cryptor.update(data) + cryptor.finalize()
+                plaintext = unpadder.update(padded_plaintext) + unpadder.finalize()
+                outFile.write(plaintext)
+            outFile.close()
+            size = fs.size(join('XX', filename))
+            return JsonResponse({'status': op + 'ed', 'name': filename, 'member': 'XX', 'size': str(size)})
         else:
-            unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
-            padded_plaintext = cryptor.update(data) + cryptor.finalize()
-            plaintext = unpadder.update(padded_plaintext) + unpadder.finalize()
-            outFile.write(plaintext)
-        outFile.close()
-        size = fs.size(join('XX', filename))
-        return JsonResponse({'status': op + 'ed', 'name': filename, 'member': 'XX', 'size': str(size)})
+            return JsonResponse({'status': 'Captcha failed'}) 
     return JsonResponse({'status': 'nothing processed'}) 
 
 def generateSecrets(password):
