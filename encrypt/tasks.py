@@ -108,8 +108,7 @@ def crypt(request):
             'response': request.POST['token'],
             'secret': CAPTCHA_V3_KEY
         }
-        logger.info('Key: ' + CAPTCHA_V3_KEY)
-        logger.info('Token: ' + request.POST['token'])
+        # logger.info('Token: ' + request.POST['token'])
         resp = requests.post('https://www.google.com/recaptcha/api/siteverify', data=gData)
         logger.info(resp.status_code)
         if resp.status_code == 200:
