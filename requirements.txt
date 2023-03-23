@@ -1,5 +1,8 @@
+Pyhton packages:
 Django
 # gunicorn
 django-environ
 django-cors-headers
 cryptography
+apt install:
+sqlite3 
