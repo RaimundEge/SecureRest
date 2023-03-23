@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
+    logger.info('index')
     return HttpResponse("Hello, world. You're at the encrypt index.")
 
 def member(request, userid):
