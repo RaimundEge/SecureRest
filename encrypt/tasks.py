@@ -12,7 +12,8 @@ backend = default_backend()
 BLOCKSIZE = 1024
 import logging
 logger = logging.getLogger(__name__)
-from settings import CAPTCHA_V3_KEY
+# from settings import CAPTCHA_V3_KEY
+from django.conf import settings
 import requests
 
 def process(request):
@@ -106,7 +107,7 @@ def crypt(request):
         # check for robot
         gData = {
             'response': request.POST['token'],
-            'secret': CAPTCHA_V3_KEY
+            'secret': settings.CAPTCHA_V3_KEY
         }
         # logger.info('Token: ' + request.POST['token'])
         resp = requests.post('https://www.google.com/recaptcha/api/siteverify', data=gData)

@@ -151,7 +151,7 @@ LOGGING = {
     'handlers': {
         'file': {
             'class': 'logging.FileHandler',
-            'filename': '/var/www/secure/REST/django.log',
+            'filename': './django.log',
             'formatter': 'verbose',
             'level': 'INFO',
         },
