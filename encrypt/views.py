@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
-    logger.info('index')
+    logger.info('encrypt index')
     return HttpResponse("Hello, world. You're at the encrypt index.")
 
 def member(request, userid):
@@ -61,6 +61,7 @@ def register(request):
     return JsonResponse({'message': 'no registration performed'})
 
 def login(request):
+    logger.info(request.body)
     if request.method == 'GET':
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:

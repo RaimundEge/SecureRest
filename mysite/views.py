@@ -22,6 +22,6 @@ def list(request):
     hellos = Hello.objects.order_by('-timestamp')[:25]
     response = "<html><body><h3>List of recent Hello requests</h3><ul>"
     for h in hellos:
-        response += "<li>" + str(h) + "</li>"
+       response += "<li>" + str(h) + "</li>"
     response += "</ul></body></heml>"
     return HttpResponse(response)
