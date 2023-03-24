@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -79,9 +81,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'OPTION': {"check_same_thread": False},
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'HOST': env('DB_HOST'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
@@ -129,8 +133,7 @@ STATIC_ROOT = "/var/www/secure/REST/static"
 CORS_ORIGIN_ALLOW_ALL = True
 
 #  email setup
-env = environ.Env()
-environ.Env.read_env()
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env('MY_VAR_1')
