@@ -127,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = "/var/www/secure/REST/static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # allow CORS
 CORS_ORIGIN_ALLOW_ALL = True
@@ -141,7 +141,7 @@ EMAIL_HOST_PASSWORD = env('MY_VAR_2')
 EMAIL_USE_TLS = True
 
 # file storage
-MEDIA_ROOT = './userfiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'userfiles')
 
 # logging
 LOGGING = {

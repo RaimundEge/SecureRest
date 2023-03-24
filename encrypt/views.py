@@ -61,7 +61,6 @@ def register(request):
     return JsonResponse({'message': 'no registration performed'})
 
 def login(request):
-    logger.info(request.body)
     if request.method == 'GET':
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
@@ -104,10 +103,11 @@ def login(request):
 
 def list(request, id):
     fs = FileSystemStorage()
-    logger.info(fs.location)
+    logger.info('list[' + str(id) + ']: ' + fs.location)
     allFiles = []
-    if fs.exists(id):
+    if fs.exists(id):       
         list = fs.listdir(id)[1]
+        logger.info(list)
         for file in list:
             entry = {'dir': '.', 'date': fs.get_modified_time(join(id, file)).strftime("%a, %d %b %Y %H:%M:%S") , 'name': file}
             allFiles.append(entry)
