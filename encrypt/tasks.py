@@ -18,7 +18,8 @@ import requests
 
 def process(request):
     if request.method == 'POST':
-        logger.info(request.body)  
+        logger.warn('processing ...')
+        logger.info(request.body)        
         rData = json.loads(request.body) 
         # get IP number
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -31,8 +32,10 @@ def process(request):
         # get key
         keyId = rData.get('keyId')
         if keyId != None:
+            logger.info('key lokup: ' + keyId)
             key = KeyData.objects.get(id=keyId)
         else:
+            logger.warn('key not found ')
             keyStyle = rData['keyStyle']
             if keyStyle == 'password':
                 keySize = rData['keySize']
@@ -53,6 +56,7 @@ def process(request):
         # have key, open files
         fs = FileSystemStorage()
         filename = rData['fileName']
+        logger.error('filename: ' + filename)
         inFile = fs.open(join(str(rData['userId']), filename), 'rb')
         if rData['op'] == 'encrypt':
             filename += '.crypt'
@@ -66,7 +70,7 @@ def process(request):
             fs.delete(join(str(rData['userId']), filename))
         outFile = fs.open(join(str(rData['userId']), filename), 'wb')
         # now do the crypt operation
-        logger.info('type of key.keybytes: ', type(key.keybytes))
+        logger.info('key: ' + str(key))
         if key.algorithm == 'AES':
             algo = algorithms.AES(key.keybytes)
         if key.algorithm == "DES" or key.algorithm == "DESede":

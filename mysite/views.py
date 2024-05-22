@@ -14,7 +14,7 @@ def index(request):
     h = Hello(IP=ip)
     h.save()
     logger.info('index from ' + ip)
-    return JsonResponse({"status": "This is the rest-secure-ege backend"})
+    return JsonResponse({"status": "Welcome to the rest-secure-ege backend"})
 
 def list(request):
     logger.info('list')
